@@ -1,11 +1,14 @@
-const enterBtn = document.querySelector("#enterBtn");
+
 
 function isMobile(){
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 
 if(isMobile()){
+    const enterBtn = document.querySelector("#enterBtn");
     enterBtn.style.display = "block";
+    const  body = document.querySelector('body');
+    body.style.fontFamily = "Arial";
 }
 
 const cells = document.querySelectorAll(".cell");
