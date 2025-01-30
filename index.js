@@ -86,6 +86,15 @@ function restartGame() {
     gameContainer.style.boxShadow = `0 0px 20px blue`;
     currentLvl = 0;
     running = true;
+    
+    if(meAI){
+        currentPlayer = "Red";
+        gameContainer.style.boxShadow = `0 0px 20px Red`;
+        let move = { Lvl: 0, move: 1 };
+        
+        updateComputerMove(move);
+        changePlayer();
+    }
 }
 
 function cellClicked() {
