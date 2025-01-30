@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Hobibo's game</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="darkmode.js" defer></script>
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <div class="logo">Hobibo's Game</div>
+            <div class="toggle_btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+        <div class="dropdown_menu">
+            <li><a href="#idGame">Game</a></li>
+            <li><a href="#idRules">Rules</a></li>
+            <li><a href="#idFeatures">Features</a></li>
+            <li><a href="#idAboutMe">About Me</a></li>
+            <button id="theme-switch">
+                <i class="fa-solid fa-sun"></i>
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="Container" id="idGame">
+        <div class="gameContainer">
+            <h1 id="Title">Hobibo's Game</h1>
+            <div class="cellContainer">
+                <div cellIndex="0" class="cell"></div>
+                <div cellIndex="1" class="cell"></div>
+                <div cellIndex="2" class="cell"></div>
+                <div cellIndex="3" class="cell"></div>
+                <div cellIndex="4" class="cell"></div>
+            </div>
+            <div class="cellContainer">
+                <div cellIndex="5" class="cell"></div>
+                <div cellIndex="6" class="cell"></div>
+                <div cellIndex="7" class="cell"></div>
+                <div cellIndex="8" class="cell"></div>
+            </div>
+            <div class="cellContainer">
+                <div cellIndex="9" class="cell"></div>
+                <div cellIndex="10" class="cell"></div>
+                <div cellIndex="11" class="cell"></div>
+            </div>
+            <div class="cellContainer">
+                <div cellIndex="12" class="cell"></div>
+                <div cellIndex="13" class="cell"></div>
+            </div>
+            <div class="cellContainer">
+                <div cellIndex="14" class="cell"></div>
+            </div>
+            <button id="restartBtn">Restart</button>
+            <div class="multiplayer_toggle_btn">
+                <i class="fa-solid fa-user-group"></i>
+            </div>
+            <div class="me_AI_toggle_btn">
+                <span>ME</span>
+            </div>
+        </div>
+        <button id="enterBtn">ENTER</button>
+    </div>
+    <div class="gameRules" id="idRules">
+        <h1>Game Rules</h1>
+        <ul>
+            <li>On each turn, the current player can press as many cells as they want, but only from the same level.</li>
+            <li>Once the player has made their selection, they must press the <strong>ENTER</strong> key to finalize their turn.</li>
+            <li>The game continues until only one white cell remains, and the player who ensures this outcome is declared the winner.</li>
+        </ul>
+    </div>
+    
+    <div class="features" id="idFeatures">
+        <h1>Features</h1>
+        <ul>
+            <li>You can choose between <strong>multiplayer</strong> and <strong>singleplayer</strong> mode by clicking one of the following icons: 
+                <i class="fa-solid fa-user-group"></i> (multiplayer) / <i class="fa-solid fa-user"></i> (singleplayer).
+            </li>
+            <li>In singleplayer mode <i class="fa-solid fa-user"></i>, you have the option to decide who makes the first move: 
+                <strong>ME</strong> (yourself) or <strong>AI</strong> (the computer).
+            </li>
+            <li>The game features a clean and minimalistic design to ensure a smooth and enjoyable user experience.</li>
+            <li>Simple controls make the game accessible to both beginners and experienced players.</li>
+        </ul>
+    </div>
+    
+    <div class="aboutMe" id="idAboutMe">
+        <h1>About Me</h1>
+        <h2>Who am I?</h2>
+        <p>I'm currently a Computer Science student with a passion for problem-solving, logic-based games, and software development.</p>
+    
+        <h2>Why did I make this project?</h2>
+        <p>I've always enjoyed playing this game during school, whether with friends or by myself. It was a simple yet engaging game that sparked my interest in strategy and logical thinking.</p>
+        <p>When I started learning programming, I realized that this game would be a perfect project to practice my skills while also recreating something nostalgic from my childhood. 
+           This project allows me to apply concepts like user interaction, game logic, and UI/UX design in a fun and meaningful way.</p>
+    </div>
+    
+    <script src="index.js"></script>
+    <script>
+        const toggleBtn = document.querySelector('.toggle_btn');
+        const toggleBtnIcon = document.querySelector('.toggle_btn i');
+        const dropDownMenu = document.querySelector('.dropdown_menu');
+        const multiplayerToggleBtnIcon = document.querySelector('.multiplayer_toggle_btn i');
+        const me_AI = document.querySelector('.me_AI_toggle_btn span');
+
+        toggleBtn.onclick = function () {
+            dropDownMenu.classList.toggle('open');
+            const isOpen = dropDownMenu.classList.contains('open');
+
+            toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+        }
+        multiplayerToggleBtnIcon.onclick = function () {
+            if (multiplayerToggleBtnIcon.classList.contains('fa-user-group')) {
+                multiplayerToggleBtnIcon.classList = 'fa-solid fa-user';
+                me_AI.textContent = 'ME';
+            } else {
+                multiplayerToggleBtnIcon.classList = 'fa-solid fa-user-group';
+            }
+        }
+        me_AI.onclick = function () {
+            if (me_AI.textContent === 'ME') {
+                me_AI.textContent = 'AI';
+            } else {
+                me_AI.textContent = 'ME';
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,286 @@
+/* General body styling */
+:root{
+  --background-colour:#ffffff;
+  --base-colour:#000000;
+  --navbar-colour:rgb(0 0 0 / 0.3);
+  --title-colour: #333;
+  --rstBtn-colour:#5e5e5e;
+  --newcell-colour:#000000;
+}
+.darkmode{
+  --background-colour:#000;
+  --base-colour:#b3b1b1;
+  --navbar-colour:rgba(149, 149, 149, 0.3);
+  --title-colour: #cccccc;
+  --rstBtn-colour:#515151;
+  --newcell-colour:#5b5b5b;
+  background: url('Fondo Hobibo Invertido.png') repeat;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--base-colour);
+}
+
+body {
+  font-family: Cursive, Arial, sans-serif;
+  min-height: 100vh;
+  background: url('Fondo Hobibo3.png') repeat;
+  background-size: 100%;
+  background-position: center;
+}
+
+
+.Container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+}
+
+#enterBtn{
+  height:60px;
+  width: 80px;
+  border-color: var(--base-colour);
+  border-radius: 50%;
+  background-color: var(--navbar-colour);
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  display: none;
+}
+
+/* Title styling */
+h1 {
+  width: 250px;
+  text-align: center;
+  margin: 0;
+  color: var(--title-colour);
+}
+
+/* Game container styling */
+.gameContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border-radius: 10px;
+  width: 250px;
+  height: 460px;
+  background-color: var(--background-colour);
+  box-shadow: 0px 0px 20px blue;
+}
+
+/* Cell container styling */
+.cellContainer {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+/* Cell styling */
+.cell {
+  width: 23px;
+  height: 60px;
+  background-color: var(--background-colour);
+  border: 2px solid var(--base-colour);
+  border-radius: 5px;
+}
+
+.cell:hover {
+  cursor: pointer;
+}
+
+/* Restart button styling */
+#restartBtn {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: var(--background-colour);
+  background-color: var(--base-colour);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#restartBtn:hover {
+  background-color: var(--rstBtn-colour);
+}
+
+.gameRules,
+.features,
+.aboutMe {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  padding-top: 70px;
+  padding-bottom: 0px;
+}
+
+.gameRules h1,
+.features h1,
+.aboutMe h1 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.gameRules ul,
+.features ul {
+  list-style-type: square;
+  padding-left: 25px;
+  font-size: 16px;
+
+}
+
+.gameRules li,
+.features li {
+  margin-bottom: 10px;
+}
+
+.aboutMe p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.aboutMe h2 {
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+
+.multiplayer_toggle_btn {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  cursor: pointer;
+}
+
+.me_AI_toggle_btn {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  display: none;
+}
+
+/*NAV*/
+
+.navbar li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--base-colour);
+  font-size: 1rem;
+}
+
+nav {
+  position: relative;
+  padding: 0 2rem;
+}
+
+.navbar {
+  z-index: 999;
+  width: 100%;
+  height: 60px;
+  padding: 0 60px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: transparent;
+  animation: enhance-header linear both;
+  animation-timeline: scroll(root block);
+  animation-range: 0 100px;
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar .toggle_btn {
+  width: 21px;
+  height: 32px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.dropdown_menu {
+  z-index: 998;
+  position: fixed;
+  right: 2rem;
+  top: 60px;
+  width: 200px;
+  height: 0px;
+  background: var(--navbar-colour);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown_menu.open {
+  height: 210px;
+}
+
+.dropdown_menu li {
+  padding: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown_menu li:hover {
+  text-decoration: underline;
+}
+
+@keyframes enhance-header {
+  to {
+    background: var(--navbar-colour);
+    backdrop-filter: blur(5px);
+    font-size: 1rem;
+  }
+}
+
+#theme-switch{
+  height:50px;
+  width: 80%;
+  border-color: transparent;
+  border-radius: 20px;
+  margin-bottom: 7px;
+  background-color: var(--background-colour);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#theme-switch:hover{
+  border-color: var(--base-colour);
+}
+#theme-switch i:last-child{
+  display:none;
+}
+.darkmode #theme-switch i:first-child{
+  display:none;
+}
+.darkmode #theme-switch i:last-child{
+  display:block;
+}
