@@ -61,16 +61,8 @@ function toggleMultiplayer() {
 }
 
 function toggleMeAI() {
-    restartGame();
     meAI = !meAI;
-    if (meAI) {
-        currentPlayer = "Red";
-        gameContainer.style.boxShadow = `0 0px 20px Red`;
-        let move = { Lvl: 0, move: 1 };
-        
-        updateComputerMove(move);
-        changePlayer();
-    }
+    restartGame();
 }
 
 function restartGame() {
